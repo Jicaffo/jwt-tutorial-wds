@@ -1,11 +1,12 @@
+import 'dotenv/config'; // Loads our dotenv variables into the process.env runtime variables of node
+// see https://github.com/motdotla/dotenv#how-do-i-use-dotenv-with-import
 import express from 'express';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
 
 const app = express();
-dotenv.config() // Loads our dotenv variables into the process.env runtime variables of node
-const PORT = 3000;
+const PORT = process.env.PORT;
 // To generate random character sequences for the .env variables we can run Node directly in the terminal writting "node", and then using crypto module to create one randomly: require('crypto').randomBytes(64).toString('hex')
 
 // Dummy DB to simulate authentication (starts empty)
@@ -94,11 +95,16 @@ app.use(express.json())
 
 // Get all user posts
 app.get("/posts", authenticateToken, (req, res)=>{
+    // Should manually provide an "Authorization" req header with "Bearer " + accessToken (obtained previously from  /login)
+    // req.userData gets populated in authenticateToken()
+    const results = req.userData.username ?
+        posts.filter(post => post.username === req.userData.username)
+        : null
     res.json({
         status: "success",
         message: `All current user post obtained correctly`,
         data: {
-            loggedUserPosts: posts.filter(post => post.username === req.userData.username)
+            loggedUserPosts: results
         }
     })
 })

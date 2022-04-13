@@ -1,5 +1,5 @@
 GET http://localhost:3000/posts
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IlJvbiIsInBhc3N3b3JkIjoiJDJiJDEwJHVSdy4wYUl4bW01RVVLdWlRVU9QY2V5ZGVhRjZ5eWdZZ2hvNXFYZmtuam9UUjBTeEhDRmJHIiwiY3JlYXRpb25UaW1lc3RhbXAiOjE2NDk4NTczOTU2NzgsImlhdCI6MTY0OTg1NzM5NX0.ymEFG7Cl7SD3WAqcIWx_BYEY78rjDAS4PBbo3cGnxwg
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ikp1YW4iLCJwYXNzd29yZCI6IiQyYiQxMCQua25tMnp0Nm8uVkJhb1d1LzAvZkp1OHhCa283cENkSE12NURWSzV1THRyeHgvY2I1elRWdSIsImNyZWF0aW9uVGltZXN0YW1wIjoxNjQ5ODcxMzIwNDE0LCJpYXQiOjE2NDk4NzEzMjB9.sP-602LOvhjhsnG0xIm2y6F2yA7MOZjIBxXfizSEAn0
 
 ###
 
@@ -7,7 +7,7 @@ POST http://localhost:3000/users
 Content-Type: application/json
 
 {
-    "username": "Ron",
+    "username": "Juan",
     "password": "1234"
 }
 
@@ -17,6 +17,6 @@ POST http://localhost:3000/login
 Content-Type: application/json
 
 {
-    "username": "Ron",
+    "username": "Juan",
     "password": "1234"
 }
