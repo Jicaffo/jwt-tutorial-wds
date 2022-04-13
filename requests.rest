@@ -1,0 +1,22 @@
+GET http://localhost:3000/posts
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IlJvbiIsInBhc3N3b3JkIjoiJDJiJDEwJHVSdy4wYUl4bW01RVVLdWlRVU9QY2V5ZGVhRjZ5eWdZZ2hvNXFYZmtuam9UUjBTeEhDRmJHIiwiY3JlYXRpb25UaW1lc3RhbXAiOjE2NDk4NTczOTU2NzgsImlhdCI6MTY0OTg1NzM5NX0.ymEFG7Cl7SD3WAqcIWx_BYEY78rjDAS4PBbo3cGnxwg
+
+###
+
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+    "username": "Ron",
+    "password": "1234"
+}
+
+###
+
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+    "username": "Ron",
+    "password": "1234"
+}
