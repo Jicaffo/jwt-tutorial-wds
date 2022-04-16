@@ -1,0 +1,46 @@
+# Gets all logged in user's posts. Should send a valid Access Token through headers (obtained through /login or /refresh-token)
+GET http://localhost:3000/posts
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ikp1YW4iLCJwYXNzd29yZCI6IiQyYiQxMCRYOFdEa3MvM3BLQTYzb1U5b25JRWwuNWxPRnEyTmliaU5yc1IuQkNibkpkRDExdHM3cnFIbSIsInVzZXJQcm9wZXJ0eVN0b3JlZE9uREIiOiJEdW1teSBQcm9wZXJ0eSIsImxhc3RMb2dpbiI6MTY1MDEyNTk1OTYzMiwiaWF0IjoxNjUwMTI2MDQ1LCJleHAiOjE2NTAxMjYxMDV9.I_i1LjkJ5F5gx0lLzVuc05O138--_WUSLx2dfLVgEic
+
+###
+
+# Creates a new user (just for test purposes)
+POST http://localhost:4000/users
+Content-Type: application/json
+
+{
+    "username": "Kyle",
+    "password": "1234"
+}
+
+###
+
+# Hardcoded stored data: "Juan" / "1234"
+# On successful login, generates and responds with both new authToken and refreshToken, with userData inside
+POST http://localhost:4000/login
+Content-Type: application/json
+
+{
+    "username": "Juan",
+    "password": "1234"
+}
+
+###
+
+# Responds with a new accessToken. Should send a valid refreshToken (obtained through /login)
+POST http://localhost:4000/refresh-token
+Content-Type: application/json
+
+{
+    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ikp1YW4iLCJwYXNzd29yZCI6IiQyYiQxMCRYOFdEa3MvM3BLQTYzb1U5b25JRWwuNWxPRnEyTmliaU5yc1IuQkNibkpkRDExdHM3cnFIbSIsInVzZXJQcm9wZXJ0eVN0b3JlZE9uREIiOiJEdW1teSBQcm9wZXJ0eSIsImxhc3RMb2dpbiI6MTY1MDEyNTk1OTYzMiwiaWF0IjoxNjUwMTI1OTU5fQ.ubOBg18hZ8Jp5CcvkrqjuPT7hYI4PUUtOMqR1w2tV1U"
+}
+
+###
+
+# Deletes the sent refreshToken (obtained originally through /login)
+DELETE http://localhost:4000/logout
+Content-Type: application/json
+
+{
+    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ikp1YW4iLCJwYXNzd29yZCI6IiQyYiQxMCR3Z3dLSFdEUlcyREF5anZpZ0ZneDN1TmtnYUNIVVJnYlRNOVd6UEREMTdrazBnMmQ1djljVyIsInVzZXJQcm9wZXJ0eVN0b3JlZE9uREIiOiJEdW1teSBQcm9wZXJ0eSIsImxhc3RMb2dpbiI6MTY1MDEyNTYwNzQzMiwiaWF0IjoxNjUwMTI1NjA3fQ.vl0t2OZe8sNYPp5Xj75bOucJTKBTXF82zJBjyf_AyNU"
+}
